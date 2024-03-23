@@ -1,0 +1,46 @@
+body {
+    height: 100%;
+    font: normal 13px "HelveticaNeue-Light", Helvetica, Georgia, sans-serif;
+}
+
+.btn_container {
+    width: 60%;
+    margin: 0 auto;
+    padding: 4px;
+    background: #8c9ef0;
+    text-align: center;
+}
+
+.data_container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 8px;
+    background: white;
+    text-align: center;
+}
+
+
+.video_container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f0e68c;
+}
+
+button{
+    border: none;
+    padding: 4px 4px;
+    border-radius: 4px;
+}
+
+button:active {
+    background-color: green;
+}
+
+
+.btn_circle {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
