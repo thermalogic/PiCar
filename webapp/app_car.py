@@ -10,23 +10,26 @@ from components.irremote import *
 from components.camera import CameraStream
 import json
 
+
 GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BOARD)
-GPIO.cleanup()
+GPIO.setmode(GPIO.BCM)
+#GPIO.cleanup()
 
 led =Led()
 
 motor = Motor()
 # stepper_motor
-IN1 = 37  # GPIO 26
-IN2 = 36  # GPIO 16
-IN3 = 26  # GPIO 7
-IN4 = 24  # GPIO 8
+IN1 = 26 # Pin 37 
+IN2 = 16 # Pin 36 
+IN3 = 7  # Pin 26 
+IN4 = 8 #  Pin 8
 stepper_motor=Stepper_Motor(IN1,IN2,IN3,IN4)
 
+# ltrasonic.worker
 ultrasonic = Ultrasonic()
-ul_thread = threading.Thread(target=ultrasonic.worker,args=(motor,),daemon=True)
+ul_thread = threading.Thread(target=ultrasonic.worker,args=(motor,led),daemon=True)
 ul_thread.start()
+# rremote_worker
 ir_thread = threading.Thread(target=irremote_worker,args=(motor,led,),daemon=True)
 ir_thread.start()
 
@@ -56,9 +59,9 @@ def video_feed():
 def data():
     def generate_data():
         while True:
-           json_data = json.dumps({'value': ultrasonic.distance})
-           yield f"data:{json_data}\n\n"
-           time.sleep(0.3)
+            json_data = json.dumps({'value': ultrasonic.distance})
+            yield f"data:{json_data}\n\n"
+            time.sleep(0.3)
 
     response = Response(stream_with_context(
         generate_data()), mimetype="text/event-stream")

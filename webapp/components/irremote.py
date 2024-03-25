@@ -1,7 +1,7 @@
 #
 # 配置/home/cmh/.bashrc为登录启动
 # 配置/etc/rc.local为开机启动无效
-# 配置irremote 32 gpio1 2 在系统中/boot/config.txt
+# 配置irremote 32 gpio 12 在系统中/boot/config.txt
 #
 import evdev
 import RPi.GPIO as GPIO

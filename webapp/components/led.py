@@ -8,11 +8,10 @@ from .motor import Motor
 
 class Led:
 
-    RIGHT = 4
-
     def __init__(self):
-        self.LEFT_LED = 7  # gpio 7
-        self.RIGHT_LED = 40   # gpio 21
+        GPIO.setmode(GPIO.BCM)
+        self.LEFT_LED = 14  # pin 8
+        self.RIGHT_LED = 21 # pin 40   
         GPIO.setup(self.LEFT_LED, GPIO.OUT)
         GPIO.setup(self.RIGHT_LED, GPIO.OUT)
         for i in range(5):

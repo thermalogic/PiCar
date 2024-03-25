@@ -17,6 +17,7 @@
 * 电阻：220欧，2个，470欧，330欧各1个
 * LED: 2个
 * USB摄像头： 1个
+* 数码管: TM1637 4位数码管 1个
 * 步进电机：28BYJ-48 1个
 * 步进电机驱动：ULN2003 1个
 * 铜质连轴器：4-5mm 2个
@@ -149,6 +150,15 @@
 
 ![](img/dc-dc.jpg)
 
+## TM1637 4位数码管
+
+| M1637 | RaspPi  |
+|-------|---------|
+| CLK   | GPIO 1  |
+| DIO   | GPIO 0 |
+
+![](img/TM637.jpg)
+
 ### 实物连线
 
 ![](img/single_power_turning_camera_picar_layout.jpg)
@@ -192,6 +202,10 @@
    *  IN3  26  # GPIO 7  
    *  IN4  24  # GPIO 8  
 
+* TM1637 4位数码管
+   CLK GPIO 1  pin28
+   DIO GPIO 0  Pin27
+
 *  给树莓派供电3*118650电池组 
    * DC-DC稳压降压模块 -，Type-c USB 
   
@@ -207,6 +221,9 @@
 
 * 18 -> LN298 ENB（3,4） 红色线
 * 22 -> LN298 ENA（1,2） 红色线
+
+* 27 ->  TM1637  DIO
+* 28 ->  TM1637  CLK
 
 * 29 ->  超声 echo 蓝色线（分压电阻中）
 * 31 ->  超声 trigger 黄色线

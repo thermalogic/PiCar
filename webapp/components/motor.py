@@ -15,13 +15,13 @@ class Motor:
     
 
     def __init__(self):
-        self.Left_Black = 13  # IN3 GPIO 27
-        self.Left_Red = 15    # IN4 GPIO 22
-        self.Right_Black = 11  # IN1 GPIO17
-        self.Right_Red = 12     # IN2  GPIO 18 PCM_CLK
+        self.Left_Black = 27 # Pin 13 IN3
+        self.Left_Red =  22   # Pin 15 IN4 
+        self.Right_Black = 17 # Pin 11 IN1
+        self.Right_Red = 18   #  Pin 12   PCM_CLK
         
-        self.Left_Enable = 18     # ENA  GPIO 24 PCM_CLK
-        self.Right_Enable = 22     # ENB  GPIO 25 PCM_CLK
+        self.Left_Enable = 24  # Pin  18  ENA 
+        self.Right_Enable = 25  # Pin 22  ENB 
         
         self.MOTOR_STATE = Motor.STOP
 
