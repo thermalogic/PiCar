@@ -101,7 +101,7 @@ def turn_speed():
 def stepper_motor_action():
     stepper_motor_action = int(request.args.get('action'))
     stepper_motor.action(stepper_motor_action)
-    return jsonify({'stepper motor status':stepper_motors_action})
+    return jsonify({'stepper motor status':stepper_motor_action})
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=False)
